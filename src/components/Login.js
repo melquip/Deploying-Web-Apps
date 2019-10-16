@@ -7,7 +7,6 @@ export const Login = ({ history, login, onLoginInputChange, attemptLogin, logout
 	const onLogin = (e) => {
 		e.preventDefault();
 		if(login.username.length === 0 || login.password.length === 0) return false;
-		//history.push('/friends');
 		attemptLogin(login);
 	}
 	const onInputChange = e => {

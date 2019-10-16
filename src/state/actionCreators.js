@@ -10,7 +10,7 @@ export const setFriendsList = list => {
 }
 export const addFriendToList = friend => dispatch => {
 	dispatch(setLoading(true));
-	withAuth.asAxios().post("https://api.melquip.now.sh/api/friends", friend)
+	withAuth.asAxios().post("https://friendslist.now.sh/api/friends", friend)
 		.then(({ data }) => {
 			console.log('added a friend', data);
 			dispatch(setFriendsList(data));
@@ -23,7 +23,7 @@ export const startEditFriend = friend => {
 }
 export const editFriend = friend => dispatch => {
 	dispatch(setLoading(true));
-	withAuth.asAxios().put(`https://api.melquip.now.sh/api/friends/${friend.id}`, friend)
+	withAuth.asAxios().put(`https://friendslist.now.sh/api/friends/${friend.id}`, friend)
 		.then(({ data }) => {
 			dispatch(setFriendsList(data));
 			dispatch(setLoading(false));
@@ -32,7 +32,7 @@ export const editFriend = friend => dispatch => {
 }
 export const deleteFriend = id => dispatch => {
 	dispatch(setLoading(true));
-	withAuth.asAxios().delete(`https://api.melquip.now.sh/api/friends/${id}`)
+	withAuth.asAxios().delete(`https://friendslist.now.sh/api/friends/${id}`)
 		.then(({ data }) => {
 			dispatch(setFriendsList(data));
 			dispatch(setLoading(false));
@@ -40,7 +40,7 @@ export const deleteFriend = id => dispatch => {
 		.catch(err => console.log(err))
 }
 export const getFriendsList = () => dispatch => {
-	withAuth.asAxios().get("https://api.melquip.now.sh/api/friends")
+	withAuth.asAxios().get("https://friendslist.now.sh/api/friends")
 		.then(({ data }) => {
 			dispatch(setFriendsList(data));
 			dispatch(setLoading(false));
@@ -64,14 +64,12 @@ export const logout = () => {
 	return { type: types.LOGOUT };
 }
 export const attemptLogin = (login) => dispatch => {
-	axios.post(`https://api.melquip.now.sh/api/login`, login)
+	axios.post(`https://friendslist.now.sh/api/login`, login)
 		.then(({ data }) => {
 			console.log('logged in', data);
 			dispatch({ type: types.LOGIN });
 			localStorage.setItem('login_token', data.payload);
-			
-			// history.push('/friends');
+			window.location.href = '/friends';
 		})
 		.catch(err => console.log(err));
-
 }

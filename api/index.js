@@ -133,4 +133,7 @@ app.listen(port, () => {
   console.log(`server listening on port ${port}`);
 });
 
-module.exports = app;
+module.exports = (req, res) => {
+  const { name = 'World' } = req.query
+  res.send(`Hello ${name}!`)
+}

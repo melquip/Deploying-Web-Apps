@@ -132,3 +132,5 @@ function getNextId() {
 app.listen(port, () => {
   console.log(`server listening on port ${port}`);
 });
+
+module.exports = app;

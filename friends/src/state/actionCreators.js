@@ -23,7 +23,6 @@ export const startEditFriend = friend => {
 }
 export const editFriend = friend => dispatch => {
 	dispatch(setLoading(true));
-	dispatch(setLoading(true));
 	withAuth.asAxios().put(`http://localhost:5000/api/friends/${friend.id}`, friend)
 		.then(({ data }) => {
 			dispatch(setFriendsList(data));
@@ -70,6 +69,8 @@ export const attemptLogin = (login) => dispatch => {
 			console.log('logged in', data);
 			dispatch({ type: types.LOGIN });
 			localStorage.setItem('login_token', data.payload);
+			
+			// history.push('/friends');
 		})
 		.catch(err => console.log(err));
 

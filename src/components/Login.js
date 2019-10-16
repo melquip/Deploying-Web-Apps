@@ -31,7 +31,7 @@ export const Login = ({ history, login, onLoginInputChange, attemptLogin, logout
 					value={login.username}
 					onChange={onInputChange}
 				/>
-				<label htmlFor="password">Password (i&lt;3Lambd4)</label>
+				<label htmlFor="password">Password (i&lt;3Lambd4) ?</label>
 				<input
 					id="password"
 					name="password"

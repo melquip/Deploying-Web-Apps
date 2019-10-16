@@ -132,8 +132,3 @@ function getNextId() {
 app.listen(port, () => {
   console.log(`server listening on port ${port}`);
 });
-
-module.exports = (req, res) => {
-  const { name = 'World' } = req.query
-  res.send(`Hello ${name}!`)
-}

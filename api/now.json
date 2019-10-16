@@ -2,8 +2,34 @@
 	"version": 2,
 	"builds": [
 		{
-			"src": "*.js",
+			"src": "index.js",
 			"use": "@now/node-server"
+		}
+	],
+	"routes": [
+		{
+			"src": "/api/login",
+			"dest": "/index.js",
+			"methods": [
+				"POST"
+			]
+		},
+		{
+			"src": "/api/friends",
+			"dest": "/index.js",
+			"methods": [
+				"GET",
+				"POST"
+			]
+		},
+		{
+			"src": "/api/friends/:id",
+			"dest": "/index.js",
+			"methods": [
+				"GET",
+				"PUT",
+				"DELETE"
+			]
 		}
 	]
 }

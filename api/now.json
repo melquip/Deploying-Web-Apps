@@ -9,27 +9,18 @@
 	"routes": [
 		{
 			"src": "/api/login",
-			"dest": "/index.js",
-			"methods": [
-				"POST"
-			]
+			"headers": { "access-control-allow-origin": "*"},
+			"dest": "/index.js"
 		},
 		{
 			"src": "/api/friends",
-			"dest": "/index.js",
-			"methods": [
-				"GET",
-				"POST"
-			]
+			"headers": { "access-control-allow-origin": "*"},
+			"dest": "/index.js"
 		},
 		{
-			"src": "/api/friends/:id",
-			"dest": "/index.js",
-			"methods": [
-				"GET",
-				"PUT",
-				"DELETE"
-			]
+			"src": "/api/friends/.*",
+			"headers": { "access-control-allow-origin": "*"},
+			"dest": "/index.js"
 		}
 	]
 }

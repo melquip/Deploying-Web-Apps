@@ -1,0 +1,5 @@
+{
+	"routes": [
+		{ "src": "/friends", "dest": "/index.html" }
+	]
+}
